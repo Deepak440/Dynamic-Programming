@@ -11,9 +11,9 @@ void Solve(int target , int n, int coin[]){
 
 	combination[0] = 1;
 	for(int i = 0; i <n ; i++){
-		for(int j= 0; j <= target; j++){
-			if(combination[j] != 0 && (j+coin[i]) <= target){
-				combination[j+coin[i]]++;
+		for(int j= 1; j < combination.size(); j++){
+			if(j >= coin[i]){
+				combination[j] += combination[j-coin[i]];
 
 			}
 		}
